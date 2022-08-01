@@ -19,6 +19,22 @@ h1 {
     margin-right: 100px;
 }
 
+h2 {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 47px;
+    text-align: center;
+    color: #D3573C;
+}
+
+span {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 17px;
+    text-align: center;
+    color: #901C1C;
+}
+
 .logo {
     height: 50px;
     margin-left: 100px;
