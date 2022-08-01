@@ -1,5 +1,10 @@
     async function getPhotographers() {
         // Penser à remplacer par les données récupérées dans le json
+        const res = await fetch('./data/photographers.json');
+        return res.json();
+        console.log(json);
+    
+
         const photographers = [
             {
                 "name": "Ma data test",
@@ -42,4 +47,12 @@
     };
     
     init();
+
+    //let myRequest = new Request('./data/photographers.json');
+    
+    //fetch(myRequest)
+    //.then(res => res.json())
+    //.then(data => {
+    //    console.log(data.photographers)
+    //})
     
