@@ -15,6 +15,9 @@ header {
 }
 
 h1 {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 47px;
     color: #901C1C;
     margin-right: 100px;
 }
@@ -29,10 +32,25 @@ h2 {
 
 span {
     font-weight: 400;
+    text-align: center;
+}
+
+.location {
     font-size: 13px;
     line-height: 17px;
-    text-align: center;
     color: #901C1C;
+}
+
+.tagline {
+    font-size: 10px;
+    line-height: 13px;
+    color: #000000;
+}
+
+.price {
+    font-size: 9px;
+    line-height: 12px;
+    color: #757575;
 }
 
 .logo {

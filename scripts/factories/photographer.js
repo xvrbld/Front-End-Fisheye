@@ -8,12 +8,16 @@ function photographerFactory(data) {
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
         const h2 = document.createElement( 'h2' );
+        h2.setAttribute("class","name");
         h2.textContent = name;
         const location = document.createElement ( 'span' );
+        location.setAttribute("class","location");
         location.textContent = city , country;
         const taglineEl = document.createElement ( 'span' );
+        taglineEl.setAttribute("class","tagline");
         taglineEl.textContent = tagline;
         const priceTag = document.createElement ( 'span' );
+        priceTag.setAttribute("class","price");
         priceTag.textContent = price;
         article.appendChild(img);
         article.appendChild(h2);
@@ -24,4 +28,3 @@ function photographerFactory(data) {
     }
     return { name, picture, getUserCardDOM }
 }
-
