@@ -35,7 +35,13 @@ span {
     text-align: center;
 }
 
-.location {
+.city {
+    font-size: 13px;
+    line-height: 17px;
+    color: #901C1C;
+}
+
+.country {
     font-size: 13px;
     line-height: 17px;
     color: #901C1C;
