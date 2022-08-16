@@ -22,17 +22,24 @@ h1 {
     margin-right: 100px;
 }
 
+.img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .name {
     font-weight: 400;
     font-size: 36px;
     line-height: 47px;
     text-align: center;
     color: #D3573C;
+    margin: 20px 0 0 0;
 }
 
 span {
     font-weight: 400;
     text-align: center;
+    margin: 2px;
 }
 
 .city {
