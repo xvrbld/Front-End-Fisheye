@@ -2,10 +2,14 @@
 <html>
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/0b32b62c73.js" crossorigin="anonymous"></script>
+    <title>Fisheye - photographe</title>
   </head>
   <body>
     <header>
@@ -13,30 +17,53 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div class="photograph-info">
+          <div id="name">Name</div>
+          <div id="location">Location</div>
+          <div id="tagline">Tagline</div>
+        </div>
+        <button class="contact_button" onclick="displayModal()">
+          Contactez-moi
+        </button>
+        <div id="pp">
+          <img src="/assets/photographers/MimiKeel.jpg" />
+        </div>
+      </div>
+      <div id="filter">
+        <p>Trier par</p>
+        <div class="filter-menu">
+          <i class="fa-solid fa-angle-up"></i>
+          <ul>
+            <li>Popularité</li>
+            <div class="line"></div>
+            <li>Date</li>
+            <div class="line"></div>
+            <li>Titre</li>
+          </ul>
+        </div>
       </div>
     </main>
     <div id="contact_modal">
-			<div class="modal">
-				<header>
+      <div class="modal">
+        <header>
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input type="text" class="first"/>
+        <form>
+          <div>
+            <label>Prénom</label>
+            <input type="text" class="first" />
             <label>Nom</label>
-						<input type="text" class="last"/>
+            <input type="text" class="last" />
             <label>Email</label>
-						<input type="text" class="email"/>
+            <input type="text" class="email" />
             <label>Votre message</label>
-						<textarea rows="10" type="text" class="message"></textarea>
-					</div>
+            <textarea rows="10" type="text" class="message"></textarea>
+          </div>
           <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+        </form>
+      </div>
+    </div>
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
