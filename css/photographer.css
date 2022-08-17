@@ -121,6 +121,54 @@
   padding: 14px 20px;
 }
 
+#gallery {
+  margin: -95px 100px 0 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  margin: 15px 0;
+}
+
+.photo-card .sample-photo {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photo-card .desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
+.photo-card .desc #title {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: #911c1c;
+}
+
+.photo-card .desc #likes {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 31px;
+  text-align: right;
+  color: #911c1c;
+}
+
 .insert {
   background-color: #db8876;
   border-radius: 5px;
@@ -130,7 +178,7 @@
   padding: 15px 25px;
 }
 
-#likes {
+.insert #likes {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 500;
@@ -141,7 +189,7 @@
 }
 
 #likes i {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 #price {
