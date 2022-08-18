@@ -15,13 +15,13 @@ function photographerFactory(data) {
         h2.setAttribute( 'class' , 'name');
         h2.textContent = name;
         link.appendChild(h2);
-        const location = document.createElement ( 'span' );
+        const location = document.createElement ( 'p' );
         location.setAttribute( 'class' , 'city' );
         location.textContent = `${city}, ${country}` ;
-        const taglineEl = document.createElement ( 'span' );
+        const taglineEl = document.createElement ( 'p' );
         taglineEl.setAttribute( 'class' , 'tagline' );
         taglineEl.textContent = tagline;
-        const priceTag = document.createElement ( 'span' );
+        const priceTag = document.createElement ( 'p' );
         priceTag.setAttribute( 'class' , 'price' );
         priceTag.textContent = `${price}€/jour`;
         article.appendChild(link);
