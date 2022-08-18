@@ -23,14 +23,14 @@
     <main id="main">
       <div class="photograph-header">
         <div class="photograph-info">
-          <span id="name">Name</span>
-          <span id="location">Location</span>
-          <span id="tagline">Tagline</span>
+          <h1 id="name" class="name">Name</h1>
+          <p id="location" class="location">Location</p>
+          <p id="tagline" class="tagline">Tagline</p>
         </div>
         <button class="contact_button" onclick="displayModal()">
           Contactez-moi
         </button>
-        <div id="pp">
+        <div id="pp" class="pp">
           <img
             src="/assets/photographers/MimiKeel.jpg"
             id="photographer-profile"
@@ -38,23 +38,23 @@
           />
         </div>
       </div>
-      <div id="filter">
-        <p>Trier par</p>
+      <div id="filter" class="filter">
+        <label for="filter-select">Trier par</label>
         <div class="filter-menu">
           <i class="fa-solid fa-angle-up"></i>
-          <ul>
-            <li>Popularité</li>
+          <select name="filters" id="filter-select">
+            <option value="Popularity">Popularité</option>
             <div class="line"></div>
-            <li>Date</li>
+            <option value="Date">Date</option>
             <div class="line"></div>
-            <li>Titre</li>
-          </ul>
+            <option value="Title">Titre</option>
+          </select>
         </div>
       </div>
       <div id="gallery"></div>
       <div class="insert">
-        <span id="likesTotal">123 456</span><i class="fa-solid fa-heart"></i>
-        <span id="price">Price / jour</span>
+        <p id="likesTotal" class="likesTotal">123 456</p><i class="fa-solid fa-heart"></i>
+        <p id="price" class="price">Price / jour</p>
       </div>
     </main>
     <div id="contact_modal">
