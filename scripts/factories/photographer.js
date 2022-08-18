@@ -14,6 +14,7 @@ function photographerFactory(data) {
         const h2 = document.createElement( 'h2' );
         h2.setAttribute( 'class' , 'name');
         h2.textContent = name;
+        link.appendChild(h2);
         const location = document.createElement ( 'span' );
         location.setAttribute( 'class' , 'city' );
         location.textContent = `${city}, ${country}` ;
@@ -24,7 +25,6 @@ function photographerFactory(data) {
         priceTag.setAttribute( 'class' , 'price' );
         priceTag.textContent = `${price}€/jour`;
         article.appendChild(link);
-        article.appendChild(h2);
         article.appendChild(location);
         article.appendChild(taglineEl);
         article.appendChild(priceTag);
