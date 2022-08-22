@@ -2,7 +2,6 @@
         // Penser à remplacer par les données récupérées dans le json
         const res = await fetch('./data/photographers.json');
         return res.json();
-        console.log(json);
     }
 
     async function displayData(photographers) {
