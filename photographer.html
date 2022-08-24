@@ -41,26 +41,56 @@
       <div id="filter" class="filter">
         <label for="filter-select">Trier par</label>
         <div class="filter-menu">
-          <select name="filters" id="filter-select">
-            <option value="Popularity">Popularité</option>
-            <div class="line"></div>
-            <option value="Date">Date</option>
-            <div class="line"></div>
-            <option value="Title">Titre</option>
-          </select>
+          <button class="dropdown-btn" onclick="openDropdown()">
+            <span class="activeFilter">Choisir</span> <i class="fa-solid fa-angle-down"></i>
+          </button>
+          <div class="dropdown" aria-label="Order by">
+            <ul>
+              <li>
+                <a href="javascript:void(0)" onclick="filterBy('popularity')"
+                  >Popularité</a
+                ><i class="fas fa-chevron-up"></i>
+              </li>
+
+              <li>
+                <a href="javascript:void(0)" onclick="filterBy('date')">Date</a>
+              </li>
+
+              <li>
+                <a href="javascript:void(0)" onclick="filterBy('title')"
+                  >Titre</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div id="gallery" class="gallery"></div>
       <div class="insert">
-        <p id="likesTotal" class="likesTotal">123 456</p><i class="fa-solid fa-heart"></i>
+        <p id="likesTotal" class="likesTotal">123 456</p>
+        <i class="fa-solid fa-heart"></i>
         <p id="price" class="price">Price / jour</p>
+      </div>
+
+      <div id="lightbox" class="lightbox">
+        <img
+          src="assets/icons/close2.svg"
+          class="close_btn"
+          onclick="closeModal()"
+        />
+        <div class="lightbox-content">
+          <div class="slide">
+            <img src="/assets/photos/Architecture_On_a_hill.jpg" />
+          </div>
+          <div class="slide_name">Title</div>
+        </div>
       </div>
     </main>
     <div id="contact_modal">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal();redirect()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
         <form name="contact">
           <div>

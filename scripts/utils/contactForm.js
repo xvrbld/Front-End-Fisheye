@@ -11,11 +11,6 @@ function closeModal() {
 const form = document.contact;
 form.addEventListener("submit", function(event) {
   event.preventDefault(); // Always preventDefault() first
-  let formData = new FormData(this);
-  let object = {};
-  formData.forEach((value, key) => {
-    object[key] = value
-  });
-  let json = JSON.stringify(object);
-  console.log(json);
+const firstName = document.querySelector(".first").value;
+console.log("prénom",firstName);
 }, false);

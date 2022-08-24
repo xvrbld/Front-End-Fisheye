@@ -97,17 +97,87 @@
 
 .filter-menu {
   margin-left: 25px;
-  width: 170px;
-  height: 170px;
+  position: relative;
 }
 
-select {
-  background-color: #911C1C;
+.dropdown {
+  background-color: #901c1c;
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 138px;
+  padding: 8px 16px;
+  border-radius: 5px;
+  z-index: 2;
+  display: none;
+}
+
+.dropdown ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dropdown ul li {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 8px;
+  border-bottom: 1px solid white;
+}
+
+.dropdown ul li:last-of-type {
+  border-bottom: none;
+}
+
+.dropdown ul li a {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
+}
+
+.dropdown ul li:hover {
+  background-color: #db8876;
+}
+
+.dropdown ul li i {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.dropdown-btn {
+  font-size: 20px;
+  font-weight: bold;
   color: white;
+  margin-top: -30px;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown-btn:hover {
+  background-color: #db8876;
+  color: #000000;
+  transition: 0.2s ease-in-out;
+}
+
+.dropdown-btn:focus {
+  background-color: #db8876;
+  color: #000000;
+}
+
+.dropdown-btn i {
+  margin-left: 8px;
 }
 
 .gallery {
-  margin: -95px 100px 0 100px;
+  padding: 50px 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -197,7 +267,6 @@ select {
   line-height: 31px;
   text-align: right;
   color: #000000;
-
 }
 
 .insert .price {
@@ -211,17 +280,45 @@ select {
   margin-left: 60px;
 }
 
+.lightbox .close_btn {
+  position: absolute;
+  right: 200px;
+}
+
+.lightbox-content .slide {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.lightbox-content .slide img {
+  width: 75%;
+}
+
+.lightbox-content .slide_name {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  color: #911c1c;
+}
+
 .modal {
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: max-content;
+  transform: translate(-50%, -50%);
 }
 
 .modal header {
@@ -265,6 +362,13 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+form textarea {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
 form input .message {

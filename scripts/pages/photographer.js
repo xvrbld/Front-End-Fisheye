@@ -1,4 +1,6 @@
 //Mettre le code JavaScript lié à la page photographer.html
+var mediasSave;
+
 
 async function displayData(photographer) {
   document.getElementById("name").innerText = photographer.name;
@@ -62,10 +64,41 @@ async function getPhotographerById() {
     .then((reponse) => reponse.json())
     .then((data) => (medias = data.medias));
   const mediasPhotographer = medias.filter((item) => item.photographerId == id);
-
+  mediasSave = medias.filter((item) => item.photographerId == id);
 
   await displayData(photographer);
   await displayMedias(mediasPhotographer);
+}
+
+function openDropdown() {
+  document.querySelector(".dropdown").style.display = "block";
+}
+
+function filterBy(type) {
+  if (type == "popularity") {
+    document.querySelector(".activeFilter").innerText = "Popularité";
+    mediasSave.sort(function (a, b) {
+      return a.likes - b.likes;
+  });
+  displayMedias(mediasSave);
+  }
+
+  if (type == "date") {
+    document.querySelector(".activeFilter").innerText = "Date";
+    mediasSave.sort(function (a, b) {
+      return a.likes - b.likes;
+  });
+  displayMedias(mediasSave);
+  }
+
+  if (type == "title") {
+    document.querySelector(".activeFilter").innerText = "Titre";
+    mediasSave.sort(function (a, b) {
+      return a.likes - b.likes;
+  });
+  displayMedias(mediasSave);
+  }
+  document.querySelector(".dropdown").style.display = "none";
 }
 
 getPhotographerById();
