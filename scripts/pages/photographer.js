@@ -77,25 +77,23 @@ function openDropdown() {
 function filterBy(type) {
   if (type == "popularity") {
     document.querySelector(".activeFilter").innerText = "Popularité";
-    mediasSave.sort(function (a, b) {
-      return a.likes - b.likes;
+    mediasSave.sort(function (a,b) {
+      return b.likes - a.likes;
   });
   displayMedias(mediasSave);
   }
 
   if (type == "date") {
     document.querySelector(".activeFilter").innerText = "Date";
-    mediasSave.sort(function (a, b) {
-      return a.likes - b.likes;
+    mediasSave.sort(function (a,b) {
+      return new Date(b.date) - new Date(a.date);
   });
   displayMedias(mediasSave);
   }
 
   if (type == "title") {
     document.querySelector(".activeFilter").innerText = "Titre";
-    mediasSave.sort(function (a, b) {
-      return a.likes - b.likes;
-  });
+    mediasSave.sort((a, b) => a.title.localeCompare(b.title));
   displayMedias(mediasSave);
   }
   document.querySelector(".dropdown").style.display = "none";

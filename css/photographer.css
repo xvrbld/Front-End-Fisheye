@@ -280,19 +280,29 @@
   margin-left: 60px;
 }
 
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
 .lightbox .close_btn {
   position: absolute;
-  right: 200px;
+  top: 10px;
+  right: 70px;
 }
 
 .lightbox-content .slide {
   display: flex;
   justify-content: center;
-  position: relative;
+  
 }
 
 .lightbox-content .slide img {
   width: 75%;
+
 }
 
 .lightbox-content .slide_name {
@@ -302,6 +312,8 @@
   font-size: 24px;
   line-height: 31px;
   color: #911c1c;
+  position: absolute;
+  left: 0;
 }
 
 .modal {
@@ -365,10 +377,10 @@ form input {
 }
 
 form textarea {
-  width: 100%;
+  width: 99%;
   border: none;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 5px 1%;
 }
 
 form input .message {
