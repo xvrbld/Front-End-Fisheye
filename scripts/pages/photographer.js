@@ -1,6 +1,6 @@
 //Mettre le code JavaScript lié à la page photographer.html
 var mediasSave;
-
+var mediasSaveOrder;
 
 async function displayData(photographer) {
   document.getElementById("name").innerText = photographer.name;
@@ -14,16 +14,18 @@ async function displayData(photographer) {
 }
 
 async function displayMedias(mediasPhotographer) {
+  mediasSaveOrder = mediasPhotographer;
   const gallery = document.getElementById("gallery");
   let mediasHtml = "";
   let nbLikesTotal = 0;
+  let i = 0;
   mediasPhotographer.map((media) => {
     nbLikesTotal += media.likes;
     let imageOrVideo;
     if (media.image) {
-      imageOrVideo = `<a href="javascript:void(0)"><img class="sample-photo" src="assets/photos/${media.image}" /></a>`;
+      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><img class="sample-photo" src="assets/photos/${media.image}" /></a>`;
     } else {
-      imageOrVideo = `<a href="javascript:void(0)"><video class="sample-photo" src="assets/photos/${media.video}"></video></a>`;
+      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><video class="sample-photo" src="assets/photos/${media.video}"></video></a>`;
     }
 
     mediasHtml =
@@ -35,9 +37,40 @@ async function displayMedias(mediasPhotographer) {
           <a onclick="addLike(this)" href="javascript:void(0)"><span class="likes">${media.likes}</span><i class="fa-solid fa-heart"></i></a>
         </div>
       </div>`;
+      i++;
   });
   gallery.innerHTML = mediasHtml;
   document.getElementById("likesTotal").innerText = nbLikesTotal;
+}
+
+async function openLightbox(mediaId,index) {
+  localStorage.setItem('mediaIndex', index);
+  const media = mediasSave.find(m => m.id == mediaId);
+  document.querySelector(".lightbox").style.display = 'block';
+  document.querySelector(".slide_name").innerText = media.title;
+  console.log(media);
+  let imageOrVideo;
+    if (media.image) {
+      imageOrVideo = `<img src="assets/photos/${media.image}" />`;
+    } else {
+      imageOrVideo = `<video controls src="assets/photos/${media.video}"></video>`;
+    } 
+    document.querySelector(".img_or_video_lightbox").innerHTML = imageOrVideo;
+}
+
+async function closeLightbox() {
+  document.querySelector(".lightbox").style.display = 'none';
+}
+
+async function next() {
+  let index = localStorage.getItem("mediaIndex");
+  const nbMedias = mediasSaveOrder.length;
+  index++;
+  if (index == nbMedias) {
+    index = 0;
+  }
+  const media = mediasSaveOrder[index];
+  openLightbox(media.id,index);
 }
 
 async function addLike(el) {

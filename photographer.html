@@ -42,7 +42,8 @@
         <label for="filter-select">Trier par</label>
         <div class="filter-menu">
           <button class="dropdown-btn" onclick="openDropdown()">
-            <span class="activeFilter">Choisir</span> <i class="fa-solid fa-angle-down"></i>
+            <span class="activeFilter">Choisir</span>
+            <i class="fa-solid fa-angle-down"></i>
           </button>
           <div class="dropdown" aria-label="Order by">
             <ul>
@@ -73,16 +74,69 @@
       </div>
 
       <div id="lightbox" class="lightbox">
-        <img
-          src="assets/icons/close2.svg"
-          class="close_btn"
-          onclick="closeModal()"
-        />
         <div class="lightbox-content">
+          <a class="arrow-l" href="javascript:void(0)" onclick="previous()">
+            <svg
+              width="96"
+              height="96"
+              viewBox="0 0 96 96"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_120_800)">
+                <path
+                  d="M61.6399 66.36L43.3199 48L61.6399 29.64L55.9999 24L31.9999 48L55.9999 72L61.6399 66.36Z"
+                  fill="#911C1C"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_120_800">
+                  <rect
+                    width="96"
+                    height="96"
+                    fill="white"
+                    transform="translate(96) rotate(90)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            </a>
+            <a class="arrow-r" href="javascript:void(0)" onclick="next()">
+            <svg
+              width="96"
+              height="96"
+              viewBox="0 0 96 96"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_120_803)">
+                <path
+                  d="M34.3601 29.64L52.6801 48L34.3601 66.36L40.0001 72L64.0001 48L40.0001 24L34.3601 29.64Z"
+                  fill="#911C1C"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_120_803">
+                  <rect
+                    width="96"
+                    height="96"
+                    fill="white"
+                    transform="translate(0 96) rotate(-90)"
+                  />
+                </clipPath>
+              </defs>
+            </svg>
+            </a>
           <div class="slide">
-            <img src="/assets/photos/Architecture_On_a_hill.jpg" />
+            <a class="close-btn" href="javascript:void(0)">
+              <img
+                src="assets/icons/close2.svg"
+                onclick="closeLightbox()"
+              />
+              </a>
+            <div class="img_or_video_lightbox"></div>
+            <div class="slide_name"></div>
           </div>
-          <div class="slide_name">Title</div>
         </div>
       </div>
     </main>
