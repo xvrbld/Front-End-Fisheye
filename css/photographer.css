@@ -147,6 +147,10 @@
   color: #ffffff;
 }
 
+.dropdown ul li i:hover {
+  font-size: 18px;
+}
+
 .dropdown-btn {
   font-size: 20px;
   font-weight: bold;

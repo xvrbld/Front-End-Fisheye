@@ -50,7 +50,7 @@
               <li>
                 <a href="javascript:void(0)" onclick="filterBy('popularity')"
                   >Popularité</a
-                ><i class="fas fa-chevron-up"></i>
+                ><i class="fas fa-chevron-up" onclick="closeDropdown()"></i>
               </li>
 
               <li>
@@ -100,8 +100,8 @@
                 </clipPath>
               </defs>
             </svg>
-            </a>
-            <a class="arrow-r" href="javascript:void(0)" onclick="next()">
+          </a>
+          <a class="arrow-r" href="javascript:void(0)" onclick="next()">
             <svg
               width="96"
               height="96"
@@ -126,14 +126,29 @@
                 </clipPath>
               </defs>
             </svg>
-            </a>
+          </a>
           <div class="slide">
-            <a class="close-btn" href="javascript:void(0)">
-              <img
-                src="assets/icons/close2.svg"
-                onclick="closeLightbox()"
-              />
-              </a>
+            <a class="close-btn" href="javascript:void(0)" onclick="closeLightbox()">
+              <svg
+                width="72"
+                height="72"
+                viewBox="0 0 72 72"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_120_794)">
+                  <path
+                    d="M57 19.23L52.77 15L36 31.77L19.23 15L15 19.23L31.77 36L15 52.77L19.23 57L36 40.23L52.77 57L57 52.77L40.23 36L57 19.23Z"
+                    fill="#911C1C"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_120_794">
+                    <rect width="72" height="72" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
             <div class="img_or_video_lightbox"></div>
             <div class="slide_name"></div>
           </div>
