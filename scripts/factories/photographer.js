@@ -8,7 +8,7 @@ function photographerFactory(data) {
     const article = document.createElement("article");
     const img = document.createElement("img");
     const link = document.createElement("a");
-    link.href = `/photographer.html?id=${id}`;
+    link.href = `photographer.html?id=${id}`;
     img.setAttribute("src", picture);
     img.setAttribute("class", "img");
     link.appendChild(img);
