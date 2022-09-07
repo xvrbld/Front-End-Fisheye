@@ -1,5 +1,6 @@
 var mediasSave;
 var mediasSaveOrder;
+var lightboxIsOpen = false;
 
 // Affiche les datas
 async function displayData(photographer) {
@@ -57,11 +58,13 @@ async function openLightbox(mediaId, index) {
     imageOrVideo = `<video controls src="assets/photos/${media.video}"></video>`;
   }
   document.querySelector(".img_or_video_lightbox").innerHTML = imageOrVideo;
+  lightboxIsOpen = true;
 }
 
 // Ferme la lightbox
 async function closeLightbox() {
   document.querySelector(".lightbox").style.display = "none";
+  lightboxIsOpen = false;
 }
 
 // Média suivant
@@ -87,6 +90,19 @@ async function previous() {
   const media = mediasSaveOrder[index];
   openLightbox(media.id, index);
 }
+
+// Lightbox/Média keyboard
+document.addEventListener("keydown", (key) => {
+  if (lightboxIsOpen) {
+    if (key.code == "Escape") {
+      closeLightbox();
+    } else if (key.code == "ArrowLeft") {
+      previous();
+    } else if (key.code == "ArrowRight") {
+      next();
+    }
+  }
+});
 
 // Ajoute les likes
 async function addLike(el) {
