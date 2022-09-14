@@ -1,4 +1,5 @@
 // Créer + Remplis les éléments HTML
+// eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
   const { id, name, portrait, city, country, tagline, price } = data;
 
@@ -11,6 +12,7 @@ function photographerFactory(data) {
     link.href = `photographer.html?id=${id}`;
     img.setAttribute("src", picture);
     img.setAttribute("class", "img");
+    img.setAttribute("alt", `${name}`);
     link.appendChild(img);
     const h2 = document.createElement("h2");
     h2.setAttribute("class", "name");

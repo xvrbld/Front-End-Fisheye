@@ -17,7 +17,7 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>
     </header>
     <main id="main">
@@ -27,7 +27,7 @@
           <p id="location" class="location"></p>
           <p id="tagline" class="tagline"></p>
         </div>
-        <button class="contact_button" onclick="displayModal()">
+        <button aria-label="Contact Me" class="contact_button" onclick="displayModal()">
           Contactez-moi
         </button>
         <div id="pp" class="pp">
@@ -41,11 +41,11 @@
       <div id="filter" class="filter">
         <label for="filter-select">Trier par</label>
         <div class="filter-menu">
-          <button class="dropdown-btn" onclick="openDropdown()">
+          <button aria-label="Order by" class="dropdown-btn" onclick="openDropdown()">
             <span class="activeFilter">Choisir</span>
             <i class="fa-solid fa-angle-down"></i>
           </button>
-          <div class="dropdown" aria-label="Order by">
+          <div class="dropdown">
             <ul>
               <li>
                 <a href="javascript:void(0)" onclick="filterBy('popularity')"
@@ -69,13 +69,13 @@
       <div id="gallery" class="gallery"></div>
       <div class="insert">
         <p id="likesTotal" class="likesTotal">123 456</p>
-        <i class="fa-solid fa-heart"></i>
+        <i aria-label="Likes" class="fa-solid fa-heart"></i>
         <p id="price" class="price">Price / jour</p>
       </div>
 
-      <div id="lightbox" class="lightbox">
+      <div id="lightbox" class="lightbox" role="dialog" aria-label="image closeup view">
         <div class="lightbox-content">
-          <a class="arrow-l" href="javascript:void(0)" onclick="previous()">
+          <a aria-label="Previous image" class="arrow-l" href="javascript:void(0)" onclick="previous()">
             <svg
               width="96"
               height="96"
@@ -101,7 +101,7 @@
               </defs>
             </svg>
           </a>
-          <a class="arrow-r" href="javascript:void(0)" onclick="next()">
+          <a aria-label="Next image" class="arrow-r" href="javascript:void(0)" onclick="next()">
             <svg
               width="96"
               height="96"
@@ -128,7 +128,7 @@
             </svg>
           </a>
           <div class="slide">
-            <a class="close-btn" href="javascript:void(0)" onclick="closeLightbox()">
+            <a aria-label="Close dialog" class="close-btn" href="javascript:void(0)" onclick="closeLightbox()">
               <svg
                 width="72"
                 height="72"
@@ -155,24 +155,24 @@
         </div>
       </div>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-label="Contact form">
       <div class="modal">
         <header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" aria-label="Close Contact form" onclick="closeModal()" />
         </header>
         <form name="contact">
           <div>
             <label>Prénom</label>
-            <input type="text" name="input1" class="first" />
+            <input type="text" name="input1" class="first" aria-label="First name" />
             <label>Nom</label>
-            <input type="text" name="input2" class="last" />
+            <input type="text" name="input2" class="last" aria-label="Last name" />
             <label>Email</label>
-            <input type="text" name="input3" class="email" />
+            <input type="text" name="input3" class="email" aria-label="Email" />
             <label>Votre message</label>
-            <textarea rows="10" type="text" class="message"></textarea>
+            <textarea rows="10" type="text" class="message" aria-label="Your message"></textarea>
           </div>
-          <button onclick="closeModal()" class="contact_button">Envoyer</button>
+          <button aria-label="Send" onclick="closeModal()" class="contact_button">Envoyer</button>
         </form>
       </div>
     </div>

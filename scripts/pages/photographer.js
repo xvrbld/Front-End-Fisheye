@@ -2,7 +2,7 @@ var mediasSave;
 var mediasSaveOrder;
 var lightboxIsOpen = false;
 
-// Affiche les datas
+// Attribute + Affiche les datas
 async function displayData(photographer) {
   document.getElementById("name").innerText = photographer.name;
   document.getElementById(
@@ -11,23 +11,26 @@ async function displayData(photographer) {
   document.getElementById("tagline").innerText = photographer.tagline;
   const picture = `assets/photographers/${photographer.portrait}`;
   document.getElementById("photographer-profile").src = picture;
+  document.getElementById("photographer-profile").alt = `${photographer.name}`;
   document.getElementById("price").innerText = `${photographer.price}€ / jour`;
 }
 
-// Affiche les médias
+// Affiche les medias
 async function displayMedias(mediasPhotographer) {
   mediasSaveOrder = mediasPhotographer;
   const gallery = document.getElementById("gallery");
+  // Definis les likes totaux à 0
   let mediasHtml = "";
   let nbLikesTotal = 0;
   let i = 0;
+
   mediasPhotographer.map((media) => {
     nbLikesTotal += media.likes;
     let imageOrVideo;
     if (media.image) {
-      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><img class="sample-photo" src="assets/photos/${media.image}" /></a>`;
+      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><img class="sample-photo" src="assets/photos/${media.image}" alt="${media.title}, closeup view" /></a>`;
     } else {
-      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><video class="sample-photo" src="assets/photos/${media.video}"></video></a>`;
+      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><video class="sample-photo" src="assets/photos/${media.video}" alt="${media.title}, closeup view"></video></a>`;
     }
 
     mediasHtml =
@@ -53,9 +56,9 @@ async function openLightbox(mediaId, index) {
   document.querySelector(".slide_name").innerText = media.title;
   let imageOrVideo;
   if (media.image) {
-    imageOrVideo = `<img src="assets/photos/${media.image}" />`;
+    imageOrVideo = `<img src="assets/photos/${media.image}" alt="${media.title}" />`;
   } else {
-    imageOrVideo = `<video controls src="assets/photos/${media.video}"></video>`;
+    imageOrVideo = `<video controls src="assets/photos/${media.video}" alt="${media.title}"></video>`;
   }
   document.querySelector(".img_or_video_lightbox").innerHTML = imageOrVideo;
   lightboxIsOpen = true;
@@ -105,6 +108,7 @@ document.addEventListener("keydown", (key) => {
 });
 
 // Ajoute les likes
+// eslint-disable-next-line no-unused-vars
 async function addLike(el) {
   let nbLikes = parseInt(el.querySelector(".likes").innerText);
   nbLikes++;
@@ -118,7 +122,7 @@ async function addLike(el) {
 async function getPhotographerById() {
   let paramsUrlProfile = new URLSearchParams(window.location.search);
   let id = paramsUrlProfile.get("id");
-
+  /* eslint-disable */
   await fetch("./data/photographers.json")
     .then((reponse) => reponse.json())
     .then((data) => (photographers = data.photographers));
@@ -130,22 +134,25 @@ async function getPhotographerById() {
     .then((data) => (medias = data.medias));
   const mediasPhotographer = medias.filter((item) => item.photographerId == id);
   mediasSave = medias.filter((item) => item.photographerId == id);
-
+  /* eslint-enable */
   await displayData(photographer);
   await displayMedias(mediasPhotographer);
 }
 
 // Ouvre dropdown des filtres
+// eslint-disable-next-line no-unused-vars
 function openDropdown() {
   document.querySelector(".dropdown").style.display = "block";
 }
 
 // Ferme dropdown des filtres
+// eslint-disable-next-line no-unused-vars
 function closeDropdown() {
   document.querySelector(".dropdown").style.display = "none";
 }
 
 // Filtres par popularité + date + titre
+// eslint-disable-next-line no-unused-vars
 function filterBy(type) {
   if (type == "popularity") {
     document.querySelector(".activeFilter").innerText = "Popularité";
