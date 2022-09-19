@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -17,7 +17,7 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye" />
       </a>
     </header>
     <main id="main">
@@ -43,14 +43,18 @@
         <div class="filter-menu">
           <button aria-label="Order by" class="dropdown-btn" onclick="openDropdown()">
             <span class="activeFilter">Choisir</span>
-            <i class="fa-solid fa-angle-down"></i>
+            <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.12 0.453125L8 6.55979L1.88 0.453125L0 2.33312L8 10.3331L16 2.33312L14.12 0.453125Z" fill="white"/>
+              </svg>              
           </button>
           <div class="dropdown">
             <ul>
               <li>
                 <a href="javascript:void(0)" onclick="filterBy('popularity')"
                   >Popularité</a
-                ><i class="fas fa-chevron-up" onclick="closeDropdown()"></i>
+                ><svg onclick="closeDropdown()" width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.88 10.5469L8 4.44021L14.12 10.5469L16 8.66688L8 0.666874L1.64355e-07 8.66687L1.88 10.5469Z" fill="white"/>
+                  </svg>
               </li>
 
               <li>
@@ -69,7 +73,9 @@
       <div id="gallery" class="gallery"></div>
       <div class="insert">
         <p id="likesTotal" class="likesTotal">123 456</p>
-        <i aria-label="Likes" class="fa-solid fa-heart"></i>
+        <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9.125 18.35L7.85625 17.03C3.35 12.36 0.375 9.28 0.375 5.5C0.375 2.42 2.4925 0 5.1875 0C6.71 0 8.17125 0.81 9.125 2.09C10.0787 0.81 11.54 0 13.0625 0C15.7575 0 17.875 2.42 17.875 5.5C17.875 9.28 14.9 12.36 10.3938 17.04L9.125 18.35Z" fill="black"/>
+          </svg>          
         <p id="price" class="price">Price / jour</p>
       </div>
 
@@ -164,13 +170,13 @@
         <form name="contact">
           <div>
             <label>Prénom</label>
-            <input type="text" name="input1" class="first" aria-label="First name" />
+            <input id="firstName" type="text" name="input1" class="first" aria-label="First name" />
             <label>Nom</label>
-            <input type="text" name="input2" class="last" aria-label="Last name" />
+            <input id="lastName" type="text" name="input2" class="last" aria-label="Last name" />
             <label>Email</label>
-            <input type="text" name="input3" class="email" aria-label="Email" />
+            <input id="email" type="text" name="input3" class="email" aria-label="Email" />
             <label>Votre message</label>
-            <textarea rows="10" type="text" class="message" aria-label="Your message"></textarea>
+            <textarea rows="10" type="text" id="message" class="message" aria-label="Your message"></textarea>
           </div>
           <button aria-label="Send" onclick="closeModal()" class="contact_button">Envoyer</button>
         </form>

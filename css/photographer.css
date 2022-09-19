@@ -143,12 +143,14 @@
   background-color: #db8876;
 }
 
-.dropdown ul li i {
+.dropdown ul li svg {
   font-size: 18px;
   color: #ffffff;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
-.dropdown ul li i:hover {
+.dropdown ul li svg:hover {
   font-size: 18px;
 }
 
@@ -168,7 +170,6 @@
 
 .dropdown-btn:hover {
   background-color: #db8876;
-  color: #000000;
   transition: 0.2s ease-in-out;
 }
 
@@ -177,7 +178,7 @@
   color: #000000;
 }
 
-.dropdown-btn i {
+.dropdown-btn svg {
   margin-left: 8px;
 }
 
@@ -236,13 +237,13 @@
   color: #911c1c;
 }
 
-.photo-card .desc i {
+.photo-card .desc svg {
   font-style: normal;
   font-size: 24px;
   line-height: 31px;
   text-align: right;
-  color: #911c1c;
   margin-left: 10px;
+  margin-top: 6px;
 }
 
 .insert {
@@ -266,7 +267,7 @@
   color: #000000;
 }
 
-.insert i {
+.insert svg {
   margin-left: 10px;
   font-size: 24px;
   line-height: 31px;
