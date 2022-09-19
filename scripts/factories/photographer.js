@@ -1,4 +1,4 @@
-// Créer + Remplis les éléments HTML
+// Créé + Attribue les éléments HTML
 // eslint-disable-next-line no-unused-vars
 function photographerFactory(data) {
   const { id, name, portrait, city, country, tagline, price } = data;

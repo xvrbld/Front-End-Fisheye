@@ -2,7 +2,7 @@ var mediasSave;
 var mediasSaveOrder;
 var lightboxIsOpen = false;
 
-// Attribute + Affiche les datas
+// Attribue + Affiche les datas
 async function displayData(photographer) {
   document.getElementById("name").innerText = photographer.name;
   document.getElementById(
@@ -19,11 +19,12 @@ async function displayData(photographer) {
 async function displayMedias(mediasPhotographer) {
   mediasSaveOrder = mediasPhotographer;
   const gallery = document.getElementById("gallery");
-  // Definis les likes totaux à 0
+  // Definis les likes à 0
   let mediasHtml = "";
   let nbLikesTotal = 0;
   let i = 0;
 
+  //  Additionne likes aux totaux + lightbox click
   mediasPhotographer.map((media) => {
     nbLikesTotal += media.likes;
     let imageOrVideo;
@@ -32,7 +33,7 @@ async function displayMedias(mediasPhotographer) {
     } else {
       imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><video class="sample-photo" src="assets/photos/${media.video}" alt="${media.title}, closeup view"></video></a>`;
     }
-
+    // Attribue HTML infos aux médias + ajout likes click
     mediasHtml =
       mediasHtml +
       `<div class="photo-card">
@@ -118,7 +119,7 @@ async function addLike(el) {
   document.getElementById("likesTotal").innerText = nbLikesTotal;
 }
 
-// Cherche + Attribute photographe ID à l'url
+// Cherche + Attribue photographe ID à l'url
 async function getPhotographerById() {
   let paramsUrlProfile = new URLSearchParams(window.location.search);
   let id = paramsUrlProfile.get("id");
