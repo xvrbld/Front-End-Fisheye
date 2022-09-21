@@ -2,6 +2,32 @@ var mediasSave;
 var mediasSaveOrder;
 var lightboxIsOpen = false;
 
+// Cherche les datas
+async function getMedias() {
+  const res = await fetch("data/photographers.json");
+  return res.json();
+}
+
+// Intégre les datas au DOM
+async function displayData(medias) {
+  const photographersSection = document.querySelector(".gallery");
+
+  medias.forEach((media) => {
+    // eslint-disable-next-line no-undef
+    const photographerMedias = mediasFactory(media);
+    const mediasDOM = photographerMedias.getMediasDOM();
+    photographersSection.appendChild(mediasDOM);
+  });
+}
+
+// Affiche les datas
+async function init() {
+  const { medias } = await getMedias();
+  displayData(medias);
+}
+
+init();
+
 // Attribue + Affiche les datas
 async function displayData(photographer) {
   document.getElementById("name").innerText = photographer.name;

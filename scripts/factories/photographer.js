@@ -35,3 +35,26 @@ function photographerFactory(data) {
   }
   return { name, picture, getUserCardDOM };
 }
+
+function mediasFactory(data) {
+  const { id, title } = data;
+
+  const image = `assets/photos/${image}`;
+
+  function getMediasDOM() {
+    const article = document.createElement("article");
+    const img = document.createElement("img");
+    link.href = `assets/photos/${media.image}`;
+    img.setAttribute("src", image);
+    img.setAttribute("class", "img");
+    img.setAttribute("alt", `${title}`);
+    link.appendChild(img);
+    const h2 = document.createElement("h2");
+    h2.setAttribute("class", "title");
+    h2.textContent = title;
+    link.appendChild(h2);
+    article.appendChild(link);
+    return article;
+  }
+  return { title, image, getMediasDOM };
+}
