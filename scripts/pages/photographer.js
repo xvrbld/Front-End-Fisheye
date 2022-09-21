@@ -2,32 +2,6 @@ var mediasSave;
 var mediasSaveOrder;
 var lightboxIsOpen = false;
 
-// Cherche les datas
-async function getMedias() {
-  const res = await fetch("data/photographers.json");
-  return res.json();
-}
-
-// Intégre les datas au DOM
-async function displayData(medias) {
-  const photographersSection = document.querySelector(".gallery");
-
-  medias.forEach((media) => {
-    // eslint-disable-next-line no-undef
-    const photographerMedias = mediasFactory(media);
-    const mediasDOM = photographerMedias.getMediasDOM();
-    photographersSection.appendChild(mediasDOM);
-  });
-}
-
-// Affiche les datas
-async function init() {
-  const { medias } = await getMedias();
-  displayData(medias);
-}
-
-init();
-
 // Attribue + Affiche les datas
 async function displayData(photographer) {
   document.getElementById("name").innerText = photographer.name;
@@ -45,36 +19,15 @@ async function displayData(photographer) {
 async function displayMedias(mediasPhotographer) {
   mediasSaveOrder = mediasPhotographer;
   const gallery = document.getElementById("gallery");
-  // Definis les likes à 0
-  let mediasHtml = "";
+  gallery.innerHTML = "";
   let nbLikesTotal = 0;
-  let i = 0;
-
-  //  Additionne likes aux totaux + lightbox click
-  mediasPhotographer.map((media) => {
+  mediasPhotographer.forEach((media, index) => {
+    // eslint-disable-next-line no-undef
+    const mediaModel = mediasFactory(media, index);
+    const mediaCardDOM = mediaModel.getMediaDOM();
+    gallery.appendChild(mediaCardDOM);
     nbLikesTotal += media.likes;
-    let imageOrVideo;
-    if (media.image) {
-      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><img class="sample-photo" src="assets/photos/${media.image}" alt="${media.title}, closeup view" /></a>`;
-    } else {
-      imageOrVideo = `<a onclick="openLightbox(${media.id},${i})" href="javascript:void(0)"><video class="sample-photo" src="assets/photos/${media.video}" alt="${media.title}, closeup view"></video></a>`;
-    }
-    // Attribue HTML infos aux médias + ajout likes click
-    mediasHtml =
-      mediasHtml +
-      `<div class="photo-card">
-        ${imageOrVideo}
-        <div class="desc">
-          <p>${media.title}</p>
-          <a onclick="addLike(this)" href="javascript:void(0)"><span class="likes">${media.likes}</span><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9.5 18.35L8.23125 17.03C3.725 12.36 0.75 9.28 0.75 5.5C0.75 2.42 2.8675 0 5.5625 0C7.085 0 8.54625 0.81 9.5 2.09C10.4537 0.81 11.915 0 13.4375 0C16.1325 0 18.25 2.42 18.25 5.5C18.25 9.28 15.275 12.36 10.7688 17.04L9.5 18.35Z" fill="#911C1C"/>
-          </svg>
-          </a>
-        </div>
-      </div>`;
-    i++;
   });
-  gallery.innerHTML = mediasHtml;
   document.getElementById("likesTotal").innerText = nbLikesTotal;
 }
 
